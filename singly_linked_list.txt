@@ -1,0 +1,144 @@
+create a new node:
+define  a structure
+allocate memory
+its initialization
+
+typedef struct node {
+    int info;
+    struct node next;
+}Node;
+Node *nptr;
+
+
+Algorithm to create a new node:
+create_node()
+1. Allocate memory for nptr;
+2 If nptr=NULL
+  Print "Overflow: Memory not allocated" Goto step 7
+  End If
+3. Read item;
+4. Set nptr->info= item;
+5. Set nptr->next=NULL
+6. Return nptr;
+7. End
+
+Algorithm to traverse the list
+1. If START=NULL
+     Print "List is empty" and Goto step 4
+  End If
+2.Set temp=START;
+3.While temp!=NULL
+    Print temp->info
+    temp=temp->next;
+  End While
+4. End
+
+Algorithm for insertion
+-----------------------
+
+1. Beginning-insertion
+----------------------
+1. Call create_node()
+2. Set nptr->next=START;
+3. Set START=nptr
+4. End
+
+2. End - Insertion
+------------------
+1. Call create_node()
+2. If START==NULL
+     START=nptr;
+   Else
+     Set temp=START;
+     While temp->next !=NULL
+       Set temp=temp->next;
+     End While
+     Set temp->next= nptr;
+   End If
+3.End
+
+3. Specified Position- Insertion
+--------------------------------
+insert_pos(START)
+1. Call create_node()
+2. Read pos
+3. Call count_node(START)
+4. If pos<=0 OR pos > count_node+1
+     Print "invalid Position " and Goto step 7
+   End If
+5. If pos=1
+      nprt->next=START;
+      START=nptr;
+   Else
+      temp=START;
+      i=1;
+      While(i<pos- 1)
+        temp=temp->next;
+        i++
+      End While
+      nptr->next=temp->next
+      temp->next=nptr
+   End If
+6.End
+
+Algorithm of deletion
+------------------------
+------------------------
+1.deletion from beginning
+------------------------
+delete_beg(START)
+1. If START==NULL
+     Print "Underflow List is empty"  and goto Step 5
+   End If
+2. Set temp=START
+3. START=temp->next
+4. Deallocate temp;
+5. End
+
+2. deletion from the End
+------------------------
+delete_end(START)
+1. If START==NULL
+     Print "Underflow , List is empty" and Goto Step 6
+   End If
+2. Set temp=START;
+3. If temp->next==NULL
+     START=NULL
+   Else
+      While temp->next!=NULL
+         save =temp
+         temp=temp->next;
+      End While
+      Set save ->next=NULL;
+    End If
+4. Deallocate temp;
+5. End
+
+3.Deletion from specified Position
+---------------------------------
+delete_pos(START)
+1. If START==NULL
+     Print Underflow and List is empty , Goto Step 8
+   End If
+2. Read pos
+3. Call count_node(START)
+4. Set temp=START
+5. If pos<=0 OR pos>count_node
+     Print Invalid position an Goto step 8
+   End If
+6. If pos=1
+     START=temp->next
+   Else
+     i=1;
+     While i<pos
+       save=temp;
+       temp=temp->next
+       i=i+1;
+     End While
+     save->next =temp->next
+   End If
+7. Deallocate temp
+8. End
+git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+     
